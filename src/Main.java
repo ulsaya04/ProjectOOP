@@ -5,5 +5,6 @@ public class Main {
         int name = 10 ;
         System.out.println(" kak vy ");
         System.out.println(" fbgsd ");
+        System.out.println(" dhfdbvs");
     }
 }
