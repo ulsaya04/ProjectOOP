@@ -17,6 +17,6 @@ public class Seller extends User {
         System.out.println("Write the name of the gadget: ");
         String name = in.next();
         double price = in.nextDouble();
-        gadget.setPrice(price)
+        gadget.setPrice(price);
     }
 }
