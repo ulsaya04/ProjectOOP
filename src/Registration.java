@@ -27,13 +27,25 @@ SQLException {
     Main.mainMenu();
 }
 private static String checkPass(String pass) {
-    if (!checkCorrrectPassword(pass)) {
+    if (!checkCorrectPassword(pass)) {
         System.out.println("Your password is weak! It should contain both large and small letters and numbers");
         String password = in.next();
         checkPass(password);
     }
     return pass;
 }
+    private static boolean checkCorrectPassword(String password){
+    boolean validOne = false;
+    boolean validTwo = false;
+    boolean validThree = false;
+    if (password.length() < 8) return false;
+    for (int i=0; i < password.length(); i++){
+        char c = password.charAt(i);
+        if ('a' <= c && c <= 'z') validOne = true;
+        if ('0' <= c && c <= '9') validTwo = true;
+        if ('A' <= c && c <= 'Z') validThree = true;
+        if (validOne && validTwo && validThree) return true;}
+return false;
 
 }
-
+}
