@@ -65,15 +65,16 @@ public class User {
 
 
     static Scanner in = new Scanner(System.in);
-    public static void findByCategory(){
-        System.out.println("Write the gadjet name: ");
-        Gadjet.infoCategory();
+    public static void findByCategory()
+    throws SQLException{
+        System.out.println("Write the gadget category: ");
+        Gadget.infoCategories();
                 int x = in.nextInt();
         switch (x){
-            case 1 -> Gadjet.FindByCategory ("Mobile Phones");
-            case 2 -> Gadjet.FindByCategory ("Laptop");
-            case 3 -> Gadjet.FindByCategory ("Smart Watch");
-            case 4 -> Gadjet.FindByCategory ("Headphones");
+            case 1 -> Gadget.FindByCategory ("Mobile Phones");
+            case 2 -> Gadget.FindByCategory ("Laptop");
+            case 3 -> Gadget.FindByCategory ("Smart Watch");
+            case 4 -> Gadget.FindByCategory ("Headphones");
 
         }
         if()
