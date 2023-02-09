@@ -1,4 +1,3 @@
-import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Scanner;
 
@@ -13,7 +12,7 @@ public class Seller extends User {
         return "Name: " + getUsername() + ", position: " + getPosition();
     }
     public static void addGadget() throws SQLException{
-        Gadget gadget = new Gadget();
+        Gadget gadget = new Gadget(name, price, category);
         System.out.println("Write the name of the gadget: ");
         String name = in.next();
         double price = in.nextDouble();
