@@ -27,7 +27,7 @@ public class Login extends User {
         searchUser(username, pass);
     }
 
-}
+
     private static void searchUser (String name, String pass) throws SQLException {
     String position = null;
     Statement statement = connection.createStatement();

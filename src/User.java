@@ -1,6 +1,5 @@
 import java.sql.*;
 import java.sql.Connection;
-import java.util.Random;
 import java.util.Scanner;
 public class User {
     private String username;
@@ -73,12 +72,13 @@ public class User {
     public static void findByCategory() throws SQLException {
         System.out.println("Write the gadget category: ");
         Gadget.infoCategories();
+        Scanner in=new Scanner(System.in);
         int x = in.nextInt();
         switch (x) {
-            case 1 -> Gadget.FindByCategory("Mobile Phones");
-            case 2 -> Gadget.FindByCategory("Laptop");
-            case 3 -> Gadget.FindByCategory("Smart Watch");
-            case 4 -> Gadget.FindByCategory("Headphones");
+            case 1 -> Gadget.SearchByCategory();
+            case 2 -> Gadget.SearchByCategory();
+            case 3 -> Gadget.SearchByCategory();
+            case 4 -> Gadget.SearchByCategory();
 
         }
         if (Login.getCurrentUser().getPosition().equals("seller")) {

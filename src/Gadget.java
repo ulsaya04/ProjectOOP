@@ -5,7 +5,7 @@ import  java.util.List;
 public class Gadget {
     private String name;
     private double price;
-    private String category;
+    private static String category;
     static final List<String> categories = Arrays.asList("Mobile Phones", "Laptop", "Smart Watch", "Headphones");
     static Connection connection = ConnectWithSql.connection();
     static PreparedStatement ps = null;
@@ -95,7 +95,9 @@ public class Gadget {
         Statement st = connection.createStatement();
         rs = st.executeQuery("SELECT * FROM gadgets");
         while (rs.next()) {
-            System.out.println("ID: " = rs.getInt("id") + "name: ", rs.getString("name") + "price: " + rs.getDouble("price") + "tenge,category: " + rs.getString("categories"));
+            System.out.println("ID: " + rs.getInt("id") + "name: "+
+                    rs.getString("name") + "price: " + rs.getDouble("price") +
+                    "tenge,category: " + rs.getString("categories"));
         }
         if (Login.getCurrentUser().getPosition().equals("seller")) {
             Main.forTheSeller();
@@ -104,7 +106,7 @@ public class Gadget {
         }
     }
 
-    public static void SearchByCategory(String category) throws SQLException {
+    public static void SearchByCategory() throws SQLException {
         Statement statement = connection.createStatement();
         rs = statement.executeQuery("SELECT * FROM products");
         System.out.println(category + ": ");

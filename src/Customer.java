@@ -1,7 +1,6 @@
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Collections;
 import java.util.Scanner;
 
 public class Customer extends User {
@@ -9,12 +8,13 @@ public class Customer extends User {
     public Customer(String username, String password, String position, Double balance ){
         super(username,password, position ,balance);
     }
-    public  Customer(){}
+
     @Override
-    return " Name:"+ getUsername()+", balance:"+ getBalance()+  " tenge, position : " + getPosition();
-}
+    public String toString(){
+    return " Name:" + getUsername()+", balance:"+ getBalance()+  " tenge, position : " + getPosition();
+    }
 public  static void buy() throws  SQLException{
-    System.out.println("Write the gadget  ID");
+    System.out.println("Write the gadget ID");
     int id = in.nextInt();
     Gadget gadget = searchGadget(id);
     Purchases purchases = new
@@ -33,12 +33,13 @@ public  static void buy() throws  SQLException{
             System.out.println("Incorrect!");
             Main.forTheCustomer();
         }
+        assert p != null;
         changeBalance(p, 1);
         Purchases.drop(id);
         System.out.println("You have successfully deleted the record");
         Main.forTheCustomer();
     }
-    private static Gadget searchProduct(int id) throws SQLException {
+    private static Gadget searchGadget(int id) throws SQLException {
         Connection connection= ConnectWithSql.connection();
         Gadget gadget = null;
         Statement st = connection.createStatement();

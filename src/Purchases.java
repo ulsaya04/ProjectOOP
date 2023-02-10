@@ -27,7 +27,7 @@ public class Purchases extends Gadget {
     }
 
     public static void insert(Purchases purchases) throws SQLException {
-        ps = connection.prepareStatement("INSERT INTO purchases (username, nameproduct, categories, price) VALUES (?, ?, ?, ?)");
+        ps = connection.prepareStatement("INSERT INTO purchases (username, namegadget, categories, price) VALUES (?, ?, ?, ?)");
         ps.setString(1, Login.getCurrentUser().getUsername());
         ps.setString(2, purchases.getName());
         ps.setString(3, purchases.getCategory());

@@ -1,7 +1,5 @@
-import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 
 public class ConnectWithSql {
@@ -17,7 +15,7 @@ public class ConnectWithSql {
                 System.out.println("Connection Failed");
             }
         } catch (SQLException e) {
-            System.out.println(e);
+            System.out.println();
 
         }
         return connection;

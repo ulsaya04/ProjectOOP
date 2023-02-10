@@ -8,21 +8,21 @@ public class Seller extends User {
 
         super (username, password, position);
     }
-    public Seller(){}
+
     @Override
     public String toString(){
 
         return "Name: " + getUsername() + ", position: " + getPosition();
     }
     public static void addGadget() throws SQLException{
-        Gadget gadget = new Gadget(name, price, category);
+        Gadget gadget = new Gadget();
         System.out.println("Write the name of the gadget: ");
         String name = in.next();
         gadget.setName(name);
         System.out.println("Write the price of the gadget:");
         double price = in.nextDouble();
         gadget.setPrice(price);
-        System.out.println("Write the product category:");
+        System.out.println("Write the gadget category:");
         Gadget.infoCategories();
         int x=in.nextInt();
         switch (x){
@@ -32,10 +32,10 @@ public class Seller extends User {
             case 4 ->gadget.setCategory("Headphones");
         }
         gadget.insert();
-        Gadget.seachProcedure(gadget.getName(), gadget.getPrice(), gadget.getCategory());
+        Gadget.searchProcedure(gadget.getName(), gadget.getPrice(), gadget.getCategory());
         Main.forTheSeller();
     }
-    public void deleteGadget() throws  SQLException{
+    public static void deleteGadget() throws  SQLException{
         System.out.println("Write the ID of the gadget you want to delete");
         int id = in.nextInt();
         dropMovie(id);

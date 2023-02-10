@@ -6,6 +6,7 @@ public class Main {
 
     public static void main(String[] args) throws SQLException {
         mainMenu();
+
     }
     //главное меню
     public static void mainMenu() throws SQLException {
@@ -16,16 +17,16 @@ public class Main {
                     """);
         int menu = in.nextInt();
         switch (menu){
-            case 1 -> Login.login();
+            case 1 -> Login.Login();
             case 2 -> Registration.reg();
             case 3 -> Login.exit();
         }
     }
     public static void forTheSeller() throws SQLException {
         System.out.println("""
-                    1) Add a product
-                    2) Delete a product
-                    3) List of products
+                    1) Add a gadget
+                    2) Delete a gadget
+                    3) List of gadgets
                     4) Search by category
                     5) List of categories
                     6) Log out of your account
@@ -36,7 +37,7 @@ public class Main {
             case 1 -> Seller.addGadget();
             case 2 -> Seller.deleteGadget();
             case 3 -> Gadget.infoAllGadget();
-            case 4 -> Seller.searchByCategory();
+            case 4 -> Seller.findByCategory();
             case 5 -> Gadget.infoCategories2();
             case 6 -> Login.logOut();
             case 7 -> Login.myAccount();
@@ -57,8 +58,8 @@ public class Main {
         switch (menu){
             case 1 -> Customer.buy();
             case 2 -> Customer.cancel();
-            case 3 -> Gadget.infoAllProduct();
-            case 4 -> Gadget.searchByCategory();
+            case 3 -> Gadget.infoAllGadget();
+            case 4 -> Gadget.SearchByCategory();
             case 5 -> Gadget.infoCategories2();
             case 6 -> Login.logOut();
             case 7 -> Login.myAccount();
