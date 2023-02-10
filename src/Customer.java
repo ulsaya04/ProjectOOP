@@ -16,5 +16,16 @@ public class Customer extends  User {
 public  static void buy() throws  SQLException{
     System.out.println("Write the gadget  ID");
     int id = in.nextInt();
+    Gadget gadget = searchGadget(id);
+    Purchases purchases = new
+            Purchases(Login.getCurrentUser().getUsername(), gadget.getName(), gadget.getCategory(), gadget.getPrice());
+    changeBalance(gadget, -1);
+    Purchases.insert(purchases);
+    Purchases.infoRecord(purchases);
+    System.out.println("You have successfully signed up!");
+    Main.forTheBuyer();
+}
+
+
 
 }
