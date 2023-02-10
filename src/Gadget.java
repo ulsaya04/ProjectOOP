@@ -95,22 +95,4 @@ public  static  void  infoAllGadget() throws  SQLException {
         Main.forTheBuyer();
     }
 }
-public  static  void SearchByCategory(String category) throws SQLException {
-    Statement statement = connection.createStatement();
-    rs = statement.executeQuery("SELECT * FROM gadget");
-    System.out.println(category + ": ");
-    while (rs.next()){
-        if(category.equals(rs.getString("categories"))){
-            System.out.println("ID: " + rs.getInt("id") + ", name: "
-                    + rs.getString("name") + ", price: " + rs.getDouble("price")
-                    + " tenge" );
-        }
-    }
-    if(Login.getCurrentUser().getRole().equals("seller")){
-        Main.forTheSeller();
-    }else {
-        Main.forTheBuyer();
-    }
-}
-
 }
