@@ -81,5 +81,14 @@ public class User {
             case 4 -> Gadget.FindByCategory("Headphones");
 
         }
+        if (Login.getCurrentUser().getPosition().equals("seller")) {
+            Main.forTheSeller();
+        } else {
+            Main.forTheBuyer();
+        }
     }
+    static {
+        in = new Scanner(System.in));
+        }
+
 }
