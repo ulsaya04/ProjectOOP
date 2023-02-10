@@ -34,4 +34,19 @@ public class Purchases extends Gadget {
         ps.setDouble(4, purchases.getPrice());
         ps.execute();
     }
+    public static void infoRecord(Purchases p) throws SQLException {
+        String res = null;
+        Statement st = connection.createStatement();
+        rs = st.executeQuery("SELECT * FROM purchases");
+
+        while(rs.next()) {
+            if (Login.getCurrentUser().getUsername().equals(rs.getString("username")) && p.getName().equals(rs.getString("namegadget")) && p.getCategory().equals(rs.getString("categories")) && p.getPrice() == rs.getDouble("price")) {
+                int var10000 = rs.getInt("id");
+                res = "ID: " + var10000 + ", username: " + rs.getString("username") + ", gadgetname: " + rs.getString("gadgetproduct") + ", price: " + rs.getDouble("price") + " tenge, category " + rs.getString("categories");
+            }
+        }
+
+        System.out.println(res);
+    }
 }
+
