@@ -38,6 +38,32 @@ public  static void buy() throws  SQLException{
         System.out.println("You have successfully deleted the record");
         Main.forTheCustomer();
     }
+    private static Gadget searchProduct(int id) throws SQLException {
+        Connection connection= ConnectWithSql.connection();
+        Gadget gadget = null;
+        Statement st = connection.createStatement();
+        rs = st.executeQuery("SELECT * FROM gadgets");
+        while (rs.next()){
+            if(id==rs.getInt("id")){
+                 gadget = new Gadget(rs.getString("name"),rs.getDouble("price"), rs.getString("categories"));
+            }
+        }
+        if(gadget==null){
+            System.out.println("There is no such procedure!");
+            Gadget.infoAllGadget();
+            Main.forTheCustomer();
+        }
+        return gadget;
+    }
+    private static void changeBalance(Gadget gadget, int reduceOrReturn) throws SQLException {
+        double res = Login.getCurrentUser().getBalance()+(reduceOrReturn * (gadget.getPrice()));
+        if(res<0) {
+            System.out.println("Insufficient funds");
+            Main.forTheCustomer();
+        }
+        Login.getCurrentUser().setBalance(res);
+    }
+}
 
 
 
