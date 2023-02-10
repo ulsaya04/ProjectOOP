@@ -28,3 +28,50 @@ public class Login extends User {
     }
 
 }
+    private static void searchUser (String name, String pass) throws SQLException {
+    String position = null;
+    Statement statement = connection.createStatement();
+    rs = statement.executeQuery("SELECT * FROM users");
+    while (rs.next()){
+        if
+        ((name.equals(rs.getString("username")))&& pass.equals(rs.getString("password"))){
+    rs.getString("position");
+    }
+    }
+    if (position==null){
+        System.out.println("There is no such user or wrong password!");
+    Main.mainMenu();
+}
+    successfulLogin (name, pass, position);
+}
+    private static void successfulLogin(String name, String pass, String position) throws SQLException {
+    if (position.equals("seller")) {
+        setCurrentUser(new Seller(name,pass,position));
+        Main.forTheSeller();
+    }
+    else if (position.equals("customer")){
+        System.out.println("Write your balance: ");
+        double balance = in.nextDouble();
+        setCurrentUser(new Customer(name,pass,position,balance));
+        System.out.println(getCurrentUser());
+        Main.forTheCustomer();
+        }
+    }
+    public static void myAccount () throws SQLException{
+        System.out.println(getCurrentUser());
+        if(getCurrentUser().getPosition().equals("Seller")) {
+            Main.forTheSeller();
+        } else {
+            Main.forTheCustomer();
+
+        }
+
+        }
+        public static void logOut ()throws SQLException {
+            setCurrentUser(null);
+            Main.mainMenu();
+        }
+        public static void exit (){
+    System.exit(0);
+        }
+}
