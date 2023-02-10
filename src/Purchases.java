@@ -42,11 +42,31 @@ public class Purchases extends Gadget {
         while(rs.next()) {
             if (Login.getCurrentUser().getUsername().equals(rs.getString("username")) && p.getName().equals(rs.getString("namegadget")) && p.getCategory().equals(rs.getString("categories")) && p.getPrice() == rs.getDouble("price")) {
                 int var10000 = rs.getInt("id");
-                res = "ID: " + var10000 + ", username: " + rs.getString("username") + ", gadgetname: " + rs.getString("gadgetproduct") + ", price: " + rs.getDouble("price") + " tenge, category " + rs.getString("categories");
+                res = "ID: " + var10000 + ", username: " + rs.getString("username") + ", gadget name: " + rs.getString("namegadget") + ", price: " + rs.getDouble("price") + " tenge, category " + rs.getString("categories");
             }
         }
 
         System.out.println(res);
+    }
+
+    public static void drop(int id) throws SQLException {
+        ps = connection.prepareStatement("delete from purchases where id = ?");
+        ps.setInt(1, id);
+        ps.execute();
+    }
+
+    public static Purchases getPurchases(int id) throws SQLException {
+        Purchases p = null;
+        Statement st = connection.createStatement();
+        rs = st.executeQuery("SELECT * FROM purchases");
+
+        while(rs.next()) {
+            if (id == rs.getInt("id") && Login.getCurrentUser().getUsername().equals(rs.getString("username"))) {
+                p = new Purchases(rs.getString("username"), rs.getString("namegadget"), rs.getString("categories"), rs.getDouble("price"));
+            }
+        }
+
+        return p;
     }
 }
 

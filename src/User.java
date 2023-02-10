@@ -84,7 +84,7 @@ public class User {
         if (Login.getCurrentUser().getPosition().equals("seller")) {
             Main.forTheSeller();
         } else {
-            Main.forTheBuyer();
+            Main.forTheCustomer();
         }
     }
     static {
