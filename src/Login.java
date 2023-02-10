@@ -72,6 +72,7 @@ public class Login extends User {
             Main.mainMenu();
         }
         public static void exit (){
+
     System.exit(0);
         }
 }

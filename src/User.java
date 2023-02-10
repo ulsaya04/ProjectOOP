@@ -87,8 +87,4 @@ public class User {
             Main.forTheCustomer();
         }
     }
-    static {
-        in = new Scanner(System.in));
-        }
-
 }

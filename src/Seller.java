@@ -42,4 +42,10 @@ public class Seller extends User {
         System.out.println("You have successfully deleted the gadget!");
         Main.forTheSeller();
     }
+    private static void dropMovie(int id) throws SQLException{
+    Connection connection = ConnectWithSql.connection();
+    Gadget.ps = connection.prepareStatement("DELETE FROM gadgets WHERE id = ?");
+    Gadget.ps.setInt(1,id);
+    Gadget.ps.execute();
+    }
 }
