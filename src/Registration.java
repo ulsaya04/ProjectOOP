@@ -19,8 +19,10 @@ SQLException {
     System.out.println("Choose position: 1) seller or 2) buyer");
     int position = in.nextInt();
     switch (position) {
-        case 1 -> user.setPosition("seller");
-        case 2 -> user.setPosition("buyer");
+        case 1 :
+            user.setPosition("seller");
+        case 2 :
+            user.setPosition("buyer");
     }
     user.insert();
     System.out.println("You have successfully registered!");

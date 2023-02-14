@@ -26,10 +26,14 @@ public class Seller extends User {
         Gadget.infoCategories();
         int x=in.nextInt();
         switch (x){
-            case 1 ->gadget.setCategory("Mobile Phones" );
-            case 2 ->gadget.setCategory("Laptop");
-            case 3 ->gadget.setCategory("Smart Watch");
-            case 4 ->gadget.setCategory("Headphones");
+            case 1 :
+                gadget.setCategory("Mobile Phones" );
+            case 2 :
+                gadget.setCategory("Laptop");
+            case 3 :gadget.setCategory("Smart Watch");
+
+            case 4 :
+                gadget.setCategory("Headphones");
         }
         gadget.insert();
         Gadget.searchProcedure(gadget.getName(), gadget.getPrice(), gadget.getCategory());

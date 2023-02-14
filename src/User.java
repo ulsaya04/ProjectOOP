@@ -75,10 +75,13 @@ public class User {
         Scanner in=new Scanner(System.in);
         int x = in.nextInt();
         switch (x) {
-            case 1 -> Gadget.SearchByCategory();
-            case 2 -> Gadget.SearchByCategory();
-            case 3 -> Gadget.SearchByCategory();
-            case 4 -> Gadget.SearchByCategory();
+            case 1 :
+                Gadget.SearchByCategory();
+            case 2 :
+                Gadget.SearchByCategory();
+            case 3 :
+                Gadget.SearchByCategory();
+            case 4 : Gadget.SearchByCategory();
 
         }
         if (Login.getCurrentUser().getPosition().equals("seller")) {
